@@ -8,9 +8,11 @@ end
 def check_input(input)
     inp = input.to_i
 
+    #validate the input
     if (inp != 0 && (inp.is_a? Integer) && (inp <= 10 && inp >= 1))
         puts "Thanks you have entered " + input
 
+        #call the logic methods
         left_simple_triangle(input.to_i)
         left_reverse_triangle(input.to_i)
         simple_triangle(input.to_i)
