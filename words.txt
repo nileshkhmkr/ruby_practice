@@ -1,0 +1,19 @@
+4 : Four
+6 : Six
+10 : Ten
+12 : Twelve
+16 : Sixteen
+7 : Seven
+3 : Three
+21 : Twenty one
+72 : Seventy two
+108 : One hundred eight
+786 : Seven hundred eighty six
+512 : Five hundred twelve
+1024 : One thousand twenty four
+2048 : Two thousand forty eight
+9999 : Nine thousand nine hundred ninety nine
+10022 : Ten thousand twenty two
+23302 : Twenty three thousand three hundred two
+201586 : Two lakh one thousand five hundred eighty six
+70963196 : Seven crore nine lakh sixty three thousand one hundred ninety six
