@@ -79,16 +79,16 @@ class ElecticityBills
             bill = 100*6 + 200*11 + over_units*15
         end
 
-        # minimum bill charged is 50 rs
-        if(bill < 50)
-            bill = 50
-        end
-
         # additional surcharge
         if(bill <= 300)
             bill = bill + (bill*5)/100
         else
             bill = bill + (bill*15)/100
+        end
+
+        # minimum bill charged is 50 rs
+        if(bill < 50)
+            bill = 50
         end
 
         return bill
