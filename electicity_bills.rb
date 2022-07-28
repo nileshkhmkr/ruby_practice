@@ -29,6 +29,9 @@ class ElecticityBills
 
         # generate bills for all the consumers
         generate_bills
+
+        # display generated bills
+        show_bills
     end
 
     # get valid count of consumers
@@ -59,9 +62,6 @@ class ElecticityBills
             bill_details = {"name" => data["name"], "units" => data["units"], "bill" => bill}
             $bills.push(bill_details)
         end
-
-        # display generated bills
-        show_bills
     end
 
     # method to calculate a bill
