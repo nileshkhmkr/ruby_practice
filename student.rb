@@ -1,10 +1,12 @@
 class Student
-    # adding some members in the class as instance variables
-    @roll_no            = 0
-    @name               = ""
-    @marks1             = 0
-    @marks2             = 0
-    @marks3             = 0
+
+    # adding some members in the class as attributes and instance variables
+    attr_accessor :roll_no
+    attr_accessor :name
+    attr_accessor :marks1
+    attr_accessor :marks2
+    attr_accessor :marks3
+
     @total_marks        = 100
     @average_marks      = 0
 
@@ -32,27 +34,6 @@ class Student
         # dynamically changing values
         @total_marks    = calculate_total
         @average_marks  = calculate_average
-    end
-
-    # writing some methods by which we can directly return values of members
-    def roll_no
-        @roll_no
-    end
-
-    def name
-        @name
-    end
-
-    def marks1
-        @marks1
-    end
-
-    def marks2
-        @marks2
-    end
-
-    def marks3
-        @marks3
     end
 
     #function to print student details
@@ -90,4 +71,4 @@ s1.display_student_details
 # s1.set_student_details(1,"Nilesh Khamkar",70,75,80)
 
 # we can also check any specific member value like this
-# puts s1.name
+# puts s1.marks1
