@@ -70,5 +70,8 @@ s1.display_student_details
 # we can update values if we want by this
 # s1.set_student_details(1,"Nilesh Khamkar",70,75,80)
 
+# we can also update any specific member value like this
+# s1.marks1 = 80
+
 # we can also check any specific member value like this
 # puts s1.marks1
