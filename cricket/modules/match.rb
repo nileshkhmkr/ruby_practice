@@ -1,17 +1,19 @@
 module Match
-    @match_types = {
-        "T20" = {
-            "innings" => 2,
-            "overs" => 3,
-        },
-        "ODI" = {
-            "innings" => 2,
-            "overs" => 5,
-        },
-        "Test"= {
-            "innings" => 4,
-            "overs" => 0,
-        },
-    }
+    
+    def toss
+        
+    end
+
+    def choose_bating_fielding
+    end
+
+    def inning
+    end
+
+    def batting
+    end
+
+    def balling
+    end
 
 end

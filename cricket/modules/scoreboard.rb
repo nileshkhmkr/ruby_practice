@@ -1,4 +1,5 @@
 module Scoreboard
+
     def display_scoreboard
     end
 
@@ -7,4 +8,17 @@ module Scoreboard
 
     def display_result
     end
+
+    def projected_runs
+    end
+
+    def required_runs
+    end
+
+    def current_runrate
+    end
+
+    def required_runrate
+    end
+    
 end
