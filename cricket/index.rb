@@ -1,3 +1,4 @@
+require_relative 'modules/Validator'
 require_relative 'modules/Teams'
 require_relative 'modules/Match'
 require_relative 'modules/Scoreboard'
@@ -10,19 +11,20 @@ class Cricket
 
   #constructor method
   def initialize
+    #set all the instance variables
     @match_types = {
-        "T20" => {
-            "innings" => 2,
-            "overs" => 3,
-        },
-        "ODI" => {
-            "innings" => 2,
-            "overs" => 5,
-        },
-        "Test" => {
-            "innings" => 4,
-            "overs" => 0,
-        }
+      "T20" => {
+        "innings" => 2,
+        "overs" => 3,
+      },
+      "ODI" => {
+        "innings" => 2,
+        "overs" => 5,
+      },
+      "Test" => {
+        "innings" => 4,
+        "overs" => 0,
+      }
     }
 
     @teams = {
@@ -134,9 +136,30 @@ class Cricket
       },
     }
 
-    puts "Welcome to Cricket League 2022"
+    @game_type =""
+    @match_type = ""
+    @your_team = {}
+    @opponent_team = {}
+
+    #start the game now by choosing game_type (i.e. Quick game or Custom game)
+    start_game
   end
   #constructor ends here
+
+  def start_game
+    puts "Welcome to Cricket League 2022"
+    toss
+  end
+
+  def quick_game
+  end
+
+  def custom_game
+    select_match_type
+    select_team
+    select_players
+    toss
+  end
 
   def configure_match
   end
