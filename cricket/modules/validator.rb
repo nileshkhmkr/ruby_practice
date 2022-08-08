@@ -5,23 +5,39 @@ module Validator
     input_label,
     success_msg,
     failure_msg,
-    should_match_to = [],
-    case_sensetive = false
+    should_match_to,
+    case_sensetive
   )
     puts input_label
     input = gets.chomp
 
     if(numeric_input == true)
-
+      input = input.to_i
+      if(inp.is_a? Integer != true)
+        "Entered value is not an integer! please try again..."
+        get_valid_input(numeric_input, input_label, success_msg, failure_msg, should_match_to, case_sensetive)
+      end
     end
 
-    if(coin_side.casecmp('H') != 0 && coin_side.casecmp('T') != 0)
-      puts failure_msg
-      get_valid_input(numeric_input, input_label, success_msg, failure_msg, should_match_to, case_sensetive)
-    else
-      puts success_msg + input 
-      return input
+    if(should_match_to)
+      if(case_sensetive)
+        if(!should_match_to.include?(input))
+          puts failure_msg
+          get_valid_input(numeric_input, input_label, success_msg, failure_msg, should_match_to, case_sensetive)
+        end
+      else
+        if(should_match_to.select{|i| i.downcase == input.downcase} == [])
+          puts failure_msg
+          get_valid_input(numeric_input, input_label, success_msg, failure_msg, should_match_to, case_sensetive)
+        end
+      end
     end
+
+    puts "You have entered : " + input 
+    if success_msg
+      puts success_msg
+    end
+    return input
   end
 
 end
