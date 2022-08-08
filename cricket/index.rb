@@ -140,6 +140,8 @@ class Cricket
     @match_type = ""
     @your_team = {}
     @opponent_team = {}
+    @toss = ""
+    @bat_field = ""
 
     #start the game now by choosing game_type (i.e. Quick game or Custom game)
     start_game
@@ -148,17 +150,41 @@ class Cricket
 
   def start_game
     puts "Welcome to Cricket League 2022"
-    toss
+    select_game_type
+  end
+
+  def select_game_type
+    puts "Please select game type :  Q => Quick game    C => Custom game"
+
+    game_types = ["Q", "C"]
+    selected_game_type = get_valid_input(false, "Please enter 'Q' or 'C' : ", false, "Wrong choice entered! Please try again.", game_types, false)
+
+    if(k.upcase == "Q")
+      puts "You have selected Quick game"
+      @game_type = "Quick"
+      quick_game
+    else
+      puts "You have selected Custom game"
+      @game_type = "Custom"
+      custom_game
+    end
   end
 
   def quick_game
+    @match_type = "T20"
+    @your_team = "MI"
+    @opponent_team = "CSK"
+    toss
+    after_toss
   end
 
   def custom_game
     select_match_type
     select_team
     select_players
+    select_opponent_team
     toss
+    after_toss
   end
 
   def configure_match

@@ -8,5 +8,8 @@ module Teams
 
   def choose_captain
   end
+
+  def select_opponent_team
+  end
   
 end
