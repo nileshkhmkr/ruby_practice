@@ -159,7 +159,7 @@ class Cricket
     game_types = ["Q", "C"]
     selected_game_type = get_valid_input(false, "Please enter 'Q' or 'C' : ", false, "Wrong choice entered! Please try again.", game_types, false)
 
-    if(k.upcase == "Q")
+    if(selected_game_type.upcase == "Q")
       puts "You have selected Quick game"
       @game_type = "Quick"
       quick_game

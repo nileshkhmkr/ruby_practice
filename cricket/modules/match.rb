@@ -4,6 +4,7 @@ module Match
   include Validator
   
   def select_match_type(match_types)
+    puts "Please select match type"
   end
     
   def toss

@@ -13,9 +13,9 @@ module Validator
 
     if(numeric_input == true)
       input = input.to_i
-      if(inp.is_a? Integer != true)
+      if(input.is_a? Integer != true)
         "Entered value is not an integer! please try again..."
-        get_valid_input(numeric_input, input_label, success_msg, failure_msg, should_match_to, case_sensetive)
+        input = get_valid_input(numeric_input, input_label, success_msg, failure_msg, should_match_to, case_sensetive)
       end
     end
 
@@ -23,12 +23,12 @@ module Validator
       if(case_sensetive)
         if(!should_match_to.include?(input))
           puts failure_msg
-          get_valid_input(numeric_input, input_label, success_msg, failure_msg, should_match_to, case_sensetive)
+          input = get_valid_input(numeric_input, input_label, success_msg, failure_msg, should_match_to, case_sensetive)
         end
       else
         if(should_match_to.select{|i| i.downcase == input.downcase} == [])
           puts failure_msg
-          get_valid_input(numeric_input, input_label, success_msg, failure_msg, should_match_to, case_sensetive)
+          input = get_valid_input(numeric_input, input_label, success_msg, failure_msg, should_match_to, case_sensetive)
         end
       end
     end
