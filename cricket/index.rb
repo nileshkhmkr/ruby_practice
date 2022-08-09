@@ -238,10 +238,10 @@ class Cricket
   end
 
   def custom_game
-    select_match_type
-    select_team
+    select_match_type(@match_types)
+    select_team(@teams,"your")
     select_players
-    select_opponent_team
+    select_team(@teams,"opponent")
     display_team("Your team", @your_team)
     display_team("Opponent team", @opponent_team)
     toss

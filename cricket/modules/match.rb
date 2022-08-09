@@ -6,6 +6,17 @@ module Match
   def select_match_type(match_types)
     puts "\n"
     puts "Please select match type"
+
+    types = match_types.keys
+    types_string = "'" + types.join("' or '") + "'"
+    type = get_valid_input(false, "Please enter #{types_string} : ", false, "Wrong choice entered! Please try again.", types, false)
+    type = type.upcase
+
+    puts "\n"
+    puts "Selected match type is #{type}"
+    @match_type = type
+
+    return @match_type
   end
     
   def toss
