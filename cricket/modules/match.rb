@@ -4,10 +4,12 @@ module Match
   include Validator
   
   def select_match_type(match_types)
+    puts "\n"
     puts "Please select match type"
   end
     
   def toss
+    puts "\n"
     puts "Let's toss a coin, select your side of coin."
 
     coin = ["H", "T"]
@@ -36,6 +38,7 @@ module Match
   end
 
   def choose_bating_fielding
+    puts "\n"
     puts "Please choose you want to 'Bat' or 'Field' first ( Enter B or F ) :"
 
     opts = ["B", "F"]
@@ -56,10 +59,12 @@ module Match
   end
 
   def make_bat_lineup
+    puts "\n"
     puts "Please Choose your batting line-up : "
   end
 
   def make_balling_lineup
+    puts "\n"
     puts "Please Choose your balling line-up : "
   end
 

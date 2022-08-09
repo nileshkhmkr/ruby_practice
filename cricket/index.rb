@@ -172,8 +172,42 @@ class Cricket
 
   def quick_game
     @match_type = "T20"
-    @your_team = "MI"
-    @opponent_team = "CSK"
+    @your_team = {
+      "name" => "Mumbai Indians",
+      "captain" => "Rohit Sharma",
+      "players" => {
+        "Rohit Sharma"        => "Batsman",
+        "Suryakumar Yadav"    => "Batsman",
+        "Ishan Kishan"        => "Batsman",
+        "Tilak Varma"         => "Batsman",
+        "Kieron Pollard"      => "All-rounder",
+        "Daniel Sams"         => "All-rounder",
+        "Tim David"           => "All-rounder",
+        "Jasprit Bumrah"      => "Bowler",
+        "Jofra Archer"        => "Bowler",
+        "Jaydev Unadkat"      => "Bowler",
+        "Mayank Markande"     => "Bowler"
+      }
+    }
+    @opponent_team = {
+      "name" => "Chennai Super Kings",
+      "captain" => "M S Dhoni",
+      "players" => {
+        "M S Dhoni"           => "Batsman",
+        "Ruturaj Gaikwad"     => "Batsman",
+        "Robin Uthappa"       => "Batsman",
+        "Ambati Rayudu"       => "Batsman",
+        "Ravindra Jadeja"     => "All-rounder",
+        "Moeen Ali"           => "All-rounder",
+        "Dwayne Bravo"        => "All-rounder",
+        "Deepak Chahar"       => "Bowler",
+        "KM Asif"             => "Bowler",
+        "Tushar Deshpande"    => "Bowler",
+        "Maheesh Theekshana"  => "Bowler"
+      }
+    }
+    display_team("Your team", @your_team)
+    display_team("Opponent team", @opponent_team)
     toss
     after_toss
   end
@@ -183,6 +217,8 @@ class Cricket
     select_team
     select_players
     select_opponent_team
+    display_team("Your team", @your_team)
+    display_team("Opponent team", @opponent_team)
     toss
     after_toss
   end
