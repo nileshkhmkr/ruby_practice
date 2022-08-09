@@ -136,12 +136,37 @@ class Cricket
       },
     }
 
+    @probablities = {
+      "0" => {"label" => "Dot ball", "runs" => 0, "ball_count" => 1, "pitch_cross" => false, "out" => false, "extras" => 0},
+      "1" => {"label" => "1 run", "runs" => 1, "ball_count" => 1, "pitch_cross" => true, "out" => false, "extras" => 0},
+      "2" => {"label" => "2 runs", "runs" => 2, "ball_count" => 1, "pitch_cross" => false, "out" => false, "extras" => 0},
+      "3" => {"label" => "3 runs", "runs" => 3, "ball_count" => 1, "pitch_cross" => true, "out" => false, "extras" => 0},
+      "4" => {"label" => "Four", "runs" => 4, "ball_count" => 1, "pitch_cross" => false, "out" => false, "extras" => 0},
+      "6" => {"label" => "Six", "runs" => 6, "ball_count" => 1, "pitch_cross" => false, "out" => false, "extras" => 0},
+      "Nb" => {"label" => "No ball", "runs" => 1, "ball_count" => 0, "pitch_cross" => false, "out" => false, "extras" => 1},
+      "Nb+1" => {"label" => "No ball + 1 run", "runs" => 2, "ball_count" => 0, "pitch_cross" => true, "out" => false, "extras" => 1},
+      "Nb+2" => {"label" => "No ball + 2 run", "runs" => 3, "ball_count" => 0, "pitch_cross" => false, "out" => false, "extras" => 1},
+      "Nb+3" => {"label" => "No ball + 3 run", "runs" => 4, "ball_count" => 0, "pitch_cross" => true, "out" => false, "extras" => 1},
+      "Nb+4" => {"label" => "No ball + Four", "runs" => 5, "ball_count" => 0, "pitch_cross" => false, "out" => false, "extras" => 1},
+      "Nb+6" => {"label" => "No ball + Six", "runs" => 7, "ball_count" => 0, "pitch_cross" => false, "out" => false, "extras" => 1},
+      "Wd" => {"label" => "Wide", "runs" => 1, "ball_count" => 0, "pitch_cross" => false, "out" => false, "extras" => 1},
+      "By" => {"label" => "Bye", "runs" => 0, "ball_count" => 1, "pitch_cross" => false, "out" => false, "extras" => 0},
+      "Lb" => {"label" => "leg bye", "runs" => 0, "ball_count" => 1, "pitch_cross" => false, "out" => false, "extras" => 0},
+      "LBW" => {"label" => "LBW out", "runs" => 0, "ball_count" => 1, "pitch_cross" => false, "out" => true, "extras" => 0},
+      "RO" => {"label" => "Run out", "runs" => 0, "ball_count" => 1, "pitch_cross" => true, "out" => true, "extras" => 0},
+      "C" => {"label" => "Catch out", "runs" => 0, "ball_count" => 1, "pitch_cross" => false, "out" => true, "extras" => 0},
+      "HW" => {"label" => "Hit wicket", "runs" => 0, "ball_count" => 1, "pitch_cross" => false, "out" => true, "extras" => 0},
+    }
+
     @game_type =""
     @match_type = ""
     @your_team = {}
     @opponent_team = {}
     @toss = ""
     @bat_field = ""
+    @total_innings = 0
+    @overs_per_inning = 0
+    @wickets_per_inning = 11
 
     #start the game now by choosing game_type (i.e. Quick game or Custom game)
     start_game
