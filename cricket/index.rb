@@ -160,8 +160,8 @@ class Cricket
 
     @game_type =""
     @match_type = ""
-    @your_team = {}
-    @opponent_team = {}
+    @your_team = {"team" => "", "name" => "", "captain" => "", "players" => {}}
+    @opponent_team = {"team" => "", "name" => "", "captain" => "", "players" => {}}
     @toss = ""
     @bat_field = ""
     @total_innings = 0
@@ -197,40 +197,19 @@ class Cricket
 
   def quick_game
     @match_type = "T20"
+    match_criterias
     @your_team = {
+      "team" => "MI",
       "name" => "Mumbai Indians",
-      "captain" => "Rohit Sharma",
-      "players" => {
-        "Rohit Sharma"        => "Batsman",
-        "Suryakumar Yadav"    => "Batsman",
-        "Ishan Kishan"        => "Batsman",
-        "Tilak Varma"         => "Batsman",
-        "Kieron Pollard"      => "All-rounder",
-        "Daniel Sams"         => "All-rounder",
-        "Tim David"           => "All-rounder",
-        "Jasprit Bumrah"      => "Bowler",
-        "Jofra Archer"        => "Bowler",
-        "Jaydev Unadkat"      => "Bowler",
-        "Mayank Markande"     => "Bowler"
-      }
     }
+    auto_select_players_and_captain(@your_team,"your")
+
     @opponent_team = {
+      "team" => "CSK",
       "name" => "Chennai Super Kings",
-      "captain" => "M S Dhoni",
-      "players" => {
-        "M S Dhoni"           => "Batsman",
-        "Ruturaj Gaikwad"     => "Batsman",
-        "Robin Uthappa"       => "Batsman",
-        "Ambati Rayudu"       => "Batsman",
-        "Ravindra Jadeja"     => "All-rounder",
-        "Moeen Ali"           => "All-rounder",
-        "Dwayne Bravo"        => "All-rounder",
-        "Deepak Chahar"       => "Bowler",
-        "KM Asif"             => "Bowler",
-        "Tushar Deshpande"    => "Bowler",
-        "Maheesh Theekshana"  => "Bowler"
-      }
     }
+    auto_select_players_and_captain(@opponent_team,"opponent")
+
     display_team("Your team", @your_team)
     display_team("Opponent team", @opponent_team)
     toss
@@ -239,9 +218,14 @@ class Cricket
 
   def custom_game
     select_match_type(@match_types)
+
     select_team(@teams,"your")
-    select_players
+    select_players(@your_team,"your")
+    choose_captain(@your_team,"your")
+
     select_team(@teams,"opponent")
+    auto_select_players_and_captain(@opponent_team,"opponent")
+
     display_team("Your team", @your_team)
     display_team("Opponent team", @opponent_team)
     toss

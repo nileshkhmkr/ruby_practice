@@ -18,6 +18,9 @@ module Match
 
     return @match_type
   end
+
+  def match_criterias
+  end
     
   def toss
     puts "\n"
@@ -56,8 +59,6 @@ module Match
     opted_to = get_valid_input(false, "Please enter 'B' or 'F' : ", false, "Wrong choice entered! Please try again.", opts, false)
      
     puts "\n"
-
-    tossed = coin.sample
     if(opted_to.upcase == "B")
       puts "You have opted to 'Bat' first."
       @bat_field = "bat"
