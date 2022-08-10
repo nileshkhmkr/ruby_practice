@@ -9,6 +9,8 @@ class Cricket
   include Match
   include Scoreboard
 
+  $lines = "--------------------------------------"
+
   #constructor method
   def initialize
     #set all the instance variables
@@ -144,11 +146,11 @@ class Cricket
       "4" => {"label" => "Four", "runs" => 4, "ball_count" => 1, "pitch_cross" => false, "out" => false, "extras" => 0},
       "6" => {"label" => "Six", "runs" => 6, "ball_count" => 1, "pitch_cross" => false, "out" => false, "extras" => 0},
       "Nb" => {"label" => "No ball", "runs" => 1, "ball_count" => 0, "pitch_cross" => false, "out" => false, "extras" => 1},
-      "Nb+1" => {"label" => "No ball + 1 run", "runs" => 2, "ball_count" => 0, "pitch_cross" => true, "out" => false, "extras" => 1},
-      "Nb+2" => {"label" => "No ball + 2 run", "runs" => 3, "ball_count" => 0, "pitch_cross" => false, "out" => false, "extras" => 1},
-      "Nb+3" => {"label" => "No ball + 3 run", "runs" => 4, "ball_count" => 0, "pitch_cross" => true, "out" => false, "extras" => 1},
-      "Nb+4" => {"label" => "No ball + Four", "runs" => 5, "ball_count" => 0, "pitch_cross" => false, "out" => false, "extras" => 1},
-      "Nb+6" => {"label" => "No ball + Six", "runs" => 7, "ball_count" => 0, "pitch_cross" => false, "out" => false, "extras" => 1},
+      "Nb+1" => {"label" => "No ball + 1 run", "runs" => 2, "ball_count" => 0, "pitch_cross" => true, "out" => false, "extras" => 2},
+      "Nb+2" => {"label" => "No ball + 2 run", "runs" => 3, "ball_count" => 0, "pitch_cross" => false, "out" => false, "extras" => 3},
+      "Nb+3" => {"label" => "No ball + 3 run", "runs" => 4, "ball_count" => 0, "pitch_cross" => true, "out" => false, "extras" => 4},
+      "Nb+4" => {"label" => "No ball + Four", "runs" => 5, "ball_count" => 0, "pitch_cross" => false, "out" => false, "extras" => 6},
+      "Nb+6" => {"label" => "No ball + Six", "runs" => 7, "ball_count" => 0, "pitch_cross" => false, "out" => false, "extras" => 7},
       "Wd" => {"label" => "Wide", "runs" => 1, "ball_count" => 0, "pitch_cross" => false, "out" => false, "extras" => 1},
       "By" => {"label" => "Bye", "runs" => 0, "ball_count" => 1, "pitch_cross" => false, "out" => false, "extras" => 0},
       "Lb" => {"label" => "leg bye", "runs" => 0, "ball_count" => 1, "pitch_cross" => false, "out" => false, "extras" => 0},
@@ -166,7 +168,8 @@ class Cricket
     @bat_field = ""
     @total_innings = 0
     @overs_per_inning = 0
-    @wickets_per_inning = 11
+    @wickets_per_inning = 10
+    @innings = {}
 
     #start the game now by choosing game_type (i.e. Quick game or Custom game)
     start_game
@@ -210,8 +213,11 @@ class Cricket
     }
     auto_select_players_and_captain(@opponent_team,"opponent")
 
+    puts $lines
     display_team("Your team", @your_team)
     display_team("Opponent team", @opponent_team)
+    
+    puts $lines
     toss
     after_toss
   end
@@ -223,11 +229,15 @@ class Cricket
     select_players(@your_team,"your")
     choose_captain(@your_team,"your")
 
+    puts $lines
     select_team(@teams,"opponent")
     auto_select_players_and_captain(@opponent_team,"opponent")
 
+    puts $lines
     display_team("Your team", @your_team)
     display_team("Opponent team", @opponent_team)
+
+    puts $lines
     toss
     after_toss
   end

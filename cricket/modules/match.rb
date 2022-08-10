@@ -14,7 +14,10 @@ module Match
 
     puts "\n"
     puts "Selected match type is #{type}"
-    @match_type = type
+
+    @match_type       = type
+    @total_innings    = match_types[type]['innings']
+    @overs_per_inning = match_types[type]['overs']
 
     return @match_type
   end
@@ -80,13 +83,7 @@ module Match
     puts "Please Choose your balling line-up : "
   end
 
-  def inning
-  end
-
-  def batting
-  end
-
-  def balling
+  def inning(number)
   end
 
 end
