@@ -103,11 +103,11 @@ module Match
     puts "\n"
     puts "Please enter #{limit} number of players from provided list of with your preference : "
     i = 1
-    players.each do |k, v|
-      if(allowed_players.include?(i-1))
-        puts "#{i}) " + k
-        i += 1
-      end
+    allowed_players.each do |i|
+      # if(allowed_players.include?(i-1))
+        puts "#{i + 1}) " + players.keys[i]
+        # i += 1
+      # end
     end
     puts "please enter in single line and comma separated (e.g. 1,2,4,5) : "
 
