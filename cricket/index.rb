@@ -23,9 +23,9 @@ class Cricket
         "innings" => 2,
         "overs" => 5,
       },
-      "Test" => {
+      "TEST" => {
         "innings" => 4,
-        "overs" => 0,
+        "overs" => 20,
       }
     }
 
@@ -165,7 +165,7 @@ class Cricket
     @your_team = {"team" => "", "name" => "", "captain" => "", "players" => {}}
     @opponent_team = {"team" => "", "name" => "", "captain" => "", "players" => {}}
     @toss = ""
-    @bat_field = ""
+    @batting_team = ""
     @total_innings = 0
     @overs_per_inning = 0
     @wickets_per_inning = 10
@@ -200,7 +200,9 @@ class Cricket
 
   def quick_game
     @match_type = "T20"
-    match_criterias
+    @total_innings    = 2
+    @overs_per_inning = 3
+
     @your_team = {
       "team" => "MI",
       "name" => "Mumbai Indians",
@@ -213,13 +215,7 @@ class Cricket
     }
     auto_select_players_and_captain(@opponent_team,"opponent")
 
-    puts $lines
-    display_team("Your team", @your_team)
-    display_team("Opponent team", @opponent_team)
-    
-    puts $lines
-    toss
-    after_toss
+    match_flow
   end
 
   def custom_game
@@ -233,6 +229,10 @@ class Cricket
     select_team(@teams,"opponent")
     auto_select_players_and_captain(@opponent_team,"opponent")
 
+    match_flow
+  end
+
+  def match_flow
     puts $lines
     display_team("Your team", @your_team)
     display_team("Opponent team", @opponent_team)
@@ -240,6 +240,10 @@ class Cricket
     puts $lines
     toss
     after_toss
+
+    puts $lines
+    show_line_ups(@your_team)
+    show_line_ups(@opponent_team)
   end
 
   def configure_match

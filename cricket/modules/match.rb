@@ -21,9 +21,6 @@ module Match
 
     return @match_type
   end
-
-  def match_criterias
-  end
     
   def toss
     puts "\n"
@@ -41,7 +38,7 @@ module Match
     else
       puts "Opponent team have won the tossed and choosed to 'Bat' first"
       @toss = "lost"
-      @bat_field = "field"
+      @batting_team = "opponent"
     end
     return @toss
   end
@@ -49,9 +46,10 @@ module Match
   def after_toss
     if(@toss == "won")
       choose_bating_fielding
-    else
-      make_balling_lineup
     end
+
+    make_batting_lineup
+    make_balling_lineup
   end
 
   def choose_bating_fielding
@@ -64,23 +62,101 @@ module Match
     puts "\n"
     if(opted_to.upcase == "B")
       puts "You have opted to 'Bat' first."
-      @bat_field = "bat"
-      make_bat_lineup
+      @batting_team = "your"
     else
       puts "You have opted to 'Field' first."
-      @bat_field = "field"
-      make_balling_lineup
+      @batting_team = "opponent"
     end
   end
 
-  def make_bat_lineup
+  def make_batting_lineup
     puts "\n"
     puts "Please Choose your batting line-up : "
+
+    puts "Do want to keep the current default lineup for Batting? :"
+    opts = ["Y", "N"]
+    ok_with_current_lineup = get_valid_input(false, "Please enter 'Y' or 'N' : ", false, "Wrong choice entered! Please try again.", opts, false)
+    
+    if(ok_with_current_lineup.upcase == "Y")
+      @your_team['batting_lineup'] = [0,1,2,3,4,5,6,7,8,9,10]
+    else
+      @your_team['batting_lineup'] = choose_lineup(11, @your_team['players'], [0,1,2,3,4,5,6,7,8,9,10])
+    end
   end
 
   def make_balling_lineup
     puts "\n"
     puts "Please Choose your balling line-up : "
+
+    puts "Do want to keep the current default lineup for Balling? :"
+    opts = ["Y", "N"]
+    ok_with_current_lineup = get_valid_input(false, "Please enter 'Y' or 'N' : ", false, "Wrong choice entered! Please try again.", opts, false)
+    
+    if(ok_with_current_lineup.upcase == "Y")
+      @your_team['balling_lineup'] = [7,8,9,10,4,5,6]
+    else
+      @your_team['balling_lineup'] = choose_lineup(7, @your_team['players'], [4,5,6,7,8,9,10])
+    end
+  end
+
+  def choose_lineup(limit, players, allowed_players)
+    puts "\n"
+    puts "Please enter #{limit} number of players from provided list of with your preference : "
+    i = 1
+    players.each do |k, v|
+      if(allowed_players.include?(i-1))
+        puts "#{i}) " + k
+        i += 1
+      end
+    end
+    puts "please enter in single line and comma separated (e.g. 1,2,4,5) : "
+
+    input = gets.chomp
+    input_array = input.split(/,/)
+    input_array = input_array.uniq()
+
+    if(input_array.count != limit)
+      puts "Please enter exactly #{limit} number of players, try again.."
+      choose_lineup(limit, players, allowed_players)
+    else
+      chosen_players = []
+
+      input_array.each do |i|
+        inp = i.chomp.to_i
+        if (inp != 0 && (inp.is_a? Integer))
+          if(allowed_players.include?(inp-1))
+            chosen_players.push(inp-1)
+          else
+            puts "No player is available for chosen number #{inp}, try again.."
+            chosen_players = choose_lineup(limit, players, allowed_players)
+          end
+        else
+          puts "All the choices should numeric values provided for player, try again.."
+          chosen_players = choose_lineup(limit, players, allowed_players)
+        end
+      end
+
+      return chosen_players
+    end
+
+  end
+
+  def show_line_ups(team)
+    puts "\n"
+    puts "Batting line-up of team #{team['name']} : "
+    i = 1
+    team['batting_lineup'].each do |k|
+      puts "#{i}) " + team['players'].keys[k]
+      i += 1
+    end
+
+    puts "\n"
+    puts "Balling line-up of team #{team['name']} : "
+    i = 1
+    team['balling_lineup'].each do |k|
+      puts "#{i}) " + team['players'].keys[k]
+      i += 1
+    end
   end
 
   def inning(number)

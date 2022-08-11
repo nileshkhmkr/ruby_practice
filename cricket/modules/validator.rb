@@ -37,7 +37,7 @@ module Validator
       end
     end
 
-    if(error = false)
+    if(error == false)
       puts "You have entered : " + input 
       if success_msg
         puts success_msg

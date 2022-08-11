@@ -66,6 +66,7 @@ module Teams
 
     input = gets.chomp
     input_array = input.split(/,/)
+    input_array = input_array.uniq()
 
     if(input_array.count != limit)
       puts "Please exactly #{limit} #{label}, try again.."
@@ -147,9 +148,13 @@ module Teams
     if(whose == 'your')
       @your_team['captain'] = players.keys[0]
       @your_team['players'] = players
+      @your_team['batting_lineup'] = [0,1,2,3,4,5,6,7,8,9,10]
+      @your_team['balling_lineup'] = [7,8,9,10,4,5,6]
     else
       @opponent_team['captain'] = players.keys[0]
       @opponent_team['players'] = players
+      @opponent_team['batting_lineup'] = [0,1,2,3,4,5,6,7,8,9,10]
+      @opponent_team['balling_lineup'] = [7,8,9,10,4,5,6]
     end
   end
 
