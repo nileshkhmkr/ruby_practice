@@ -169,7 +169,7 @@ class Cricket
     @total_innings = 0
     @overs_per_inning = 0
     @wickets_per_inning = 10
-    $innings = {}
+    @innings = {}
 
     #start the game now by choosing game_type (i.e. Quick game or Custom game)
     start_game

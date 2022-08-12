@@ -174,7 +174,8 @@ module Match
   def inning(inn)
     puts "\n"
     puts "----Inning number #{inn}----"
-
+    
+    @innings[inn] = {}
     if(@batting_team == "your")
       @innings[inn]['batting'] = @your_team['team']
       @innings[inn]['balling'] = @opponent_team['team']
@@ -197,7 +198,7 @@ module Match
 
       ball = 1
       # 6 balls per over
-      while b <= 6
+      while ball <= 6
         if @innings[inn]['wickets'] == @wickets_per_inning
           break
         end
@@ -207,12 +208,12 @@ module Match
 
         # add runs
         if(@probablities[delivery]['runs'] != 0)
-          @innings[inn]['runs'] = @probablities[delivery]['runs']
+          @innings[inn]['runs'] += @probablities[delivery]['runs']
         end
 
         # add extras in count
         if(@probablities[delivery]['extras'] != 0)
-          @innings[inn]['extras'] = @probablities[delivery]['extras']
+          @innings[inn]['extras'] += @probablities[delivery]['extras']
         end
 
         # add wickets
