@@ -244,9 +244,12 @@ class Cricket
     puts $lines
     show_line_ups(@your_team)
     show_line_ups(@opponent_team)
-  end
 
-  def configure_match
+    puts $lines
+    start_match
+
+    puts $lines
+    match_results
   end
 
 end

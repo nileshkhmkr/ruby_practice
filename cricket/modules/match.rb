@@ -159,7 +159,15 @@ module Match
     end
   end
 
+  def start_match
+    puts "\n"
+    puts "Starting Match......"
+  end
+
   def inning(number)
+  end
+
+  def match_results
   end
 
 end
