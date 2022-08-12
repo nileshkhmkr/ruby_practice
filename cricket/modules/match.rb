@@ -168,26 +168,67 @@ module Match
       inning(i)
       i += 1
     end
+    puts @innings
   end
 
   def inning(inn)
     puts "\n"
-    puts "----Inning number #{number}----"
+    puts "----Inning number #{inn}----"
+
+    if(@batting_team == "your")
+      @innings[inn]['batting'] = @your_team['team']
+      @innings[inn]['balling'] = @opponent_team['team']
+    else
+      @innings[inn]['batting'] = @opponent_team['team']
+      @innings[inn]['balling'] = @your_team['team']
+    end
+    @innings[inn]['runs'] = 0
+    @innings[inn]['extras'] = 0
+    @innings[inn]['wickets'] = 0
+    @innings[inn]['overs'] = 0.0
+    @innings[inn]['timeline'] = []
 
     puts "\n"
-    o = 1
-    while o <= @overs_per_inning
-      b = 1
+    over = 1
+    while over <= @overs_per_inning
+      if @innings[inn]['wickets'] == @wickets_per_inning
+        break
+      end
+
+      ball = 1
       # 6 balls per over
       while b <= 6
-        ball = @probablities.keys.sample
+        if @innings[inn]['wickets'] == @wickets_per_inning
+          break
+        end
 
-        #check if ball is counted
-        if(@probablities[ball][ball_count] == 1)
-          b += 1
+        delivery = @probablities.keys.sample
+        @innings[inn]['timeline'].push(delivery)
+
+        # add runs
+        if(@probablities[delivery]['runs'] != 0)
+          @innings[inn]['runs'] = @probablities[delivery]['runs']
+        end
+
+        # add extras in count
+        if(@probablities[delivery]['extras'] != 0)
+          @innings[inn]['extras'] = @probablities[delivery]['extras']
+        end
+
+        # add wickets
+        if(@probablities[delivery]['out'] == true)
+          @innings[inn]['wickets'] += 1
+        end
+
+        # check if ball is counted
+        if(@probablities[delivery]['ball_count'] == 1)
+          ball += 1
+          @innings[inn]['overs'] += 0.1
         end
       end
-      o += 1
+
+      @innings[inn]['overs'] = over
+      over += 1
     end
   end
 
