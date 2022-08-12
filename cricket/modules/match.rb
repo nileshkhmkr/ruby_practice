@@ -162,9 +162,33 @@ module Match
   def start_match
     puts "\n"
     puts "Starting Match......"
+
+    i = 1
+    while i <= @total_innings
+      inning(i)
+      i += 1
+    end
   end
 
-  def inning(number)
+  def inning(inn)
+    puts "\n"
+    puts "----Inning number #{number}----"
+
+    puts "\n"
+    o = 1
+    while o <= @overs_per_inning
+      b = 1
+      # 6 balls per over
+      while b <= 6
+        ball = @probablities.keys.sample
+
+        #check if ball is counted
+        if(@probablities[ball][ball_count] == 1)
+          b += 1
+        end
+      end
+      o += 1
+    end
   end
 
   def match_results
