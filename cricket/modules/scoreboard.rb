@@ -2,10 +2,20 @@ module Scoreboard
 
   def display_scoreboard(inning)
     puts "\n"
-    puts "Scoreboard for inning #{inning} :"
+    puts "Scoreboard for inning #{inning} : "
+    puts "Total runs : #{@innings[inning]['runs']}"
+    puts "Total overs : #{@innings[inning]['overs']}"
+    puts "Wickets gone : #{@innings[inning]['wickets']}"
+    puts "Extra : #{@innings[inning]['extras']}"
+    puts "Runrate : #{calculate_runrate(@innings[inning]['runs'], @innings[inning]['overs'])}"
   end
 
-  def display_overs
+  def display_overs(inning)
+    puts "\n"
+    puts "Overs in inning #{inning} : "
+    @innings[inning]['timeline'].each do |o, t|
+      puts "#{o} : #{t}"
+    end
   end
 
   def display_result
@@ -29,4 +39,7 @@ module Scoreboard
     puts "Required runrate : "
   end
     
+  def calculate_runrate(runs, overs)
+    runs / overs
+  end
 end
