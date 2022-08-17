@@ -1,0 +1,43 @@
+Match type : ODI
+Your team have won the toss
+And have elected to Field first
+
+----Inning number 1----
+Batting Team : SRH
+
+Overs in inning 1 : 
+Over 1 : ["3", "Wd", "Wd", "Nb", "4", "Wd", "LBW", "Nb+6", "Lb", "3", "Lb"] ---- (This over 21/1)  Total 21/1
+Over 2 : ["LBW", "By", "LBW", "C", "Nb+3", "LBW", "Nb+2", "Lb"] ---- (This over 7/4)  Total 28/5
+Over 3 : ["1", "Nb+1", "RO", "Lb", "4", "HW", "LBW"] ---- (This over 7/3)  Total 35/8
+Over 4 : ["Lb", "3", "By", "3", "Lb", "4"] ---- (This over 10/0)  Total 45/8
+Over 5 : ["RO", "0", "6", "Nb+6", "By", "Nb+6", "Nb+3", "By", "Nb+6", "Nb+4", "1"] ---- (This over 37/1)  Total 82/9
+
+Scoreboard for inning 1 : 
+Total runs : 82
+Total overs : 5
+Wickets gone : 9
+Extra : 51
+Runrate : 16.4
+--------------------------------------
+
+----Inning number 2----
+Batting Team : CSK
+
+Overs in inning 2 : 
+Over 1 : ["HW", "Nb+6", "Nb", "RO", "Nb+3", "0", "3", "Nb+2", "Nb", "Nb+4", "0", "C"] ---- (This over 24/3)  Total 24/3
+Over 2 : ["Nb", "2", "Nb+6", "Nb", "2", "4", "1", "Nb+3", "1", "RO"] ---- (This over 23/1)  Total 47/4
+Over 3 : ["1", "0", "C", "Lb", "Lb", "Nb", "Nb", "C"] ---- (This over 3/2)  Total 50/6
+Over 4 : ["4", "HW", "Nb+6", "Nb+3", "Nb+3", "Lb", "HW", "3", "Nb+3", "Wd", "4"] ---- (This over 31/2)  Total 81/8
+Over 5 : ["3"] ---- (This over 3/0)  Total 84/8
+
+Scoreboard for inning 2 : 
+Total runs : 84
+Total overs : 4.1
+Wickets gone : 8
+Extra : 57
+Runrate : 20.49
+--------------------------------------
+
+--------------------------------------
+CSK won the match by 3 wickets (in 4.1 overs)
+--------------------------------------

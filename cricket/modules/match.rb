@@ -166,20 +166,15 @@ module Match
     i = 1
     while i <= @total_innings
       inning(i)
-
+      display_inning_details(i)
       display_overs(i)
       display_scoreboard(i)
 
       i += 1
     end
-
-    display_result
   end
 
   def inning(inn)
-    puts "\n"
-    puts "----Inning number #{inn}----"
-
     @innings[inn] = {}
     if(@batting_team == "your")
       @innings[inn]['batting'] = @your_team['team']
@@ -189,8 +184,6 @@ module Match
       @innings[inn]['balling'] = @your_team['team']
     end
     
-    puts "Batting Teams : #{@innings[inn]['batting']}"
-    
     @innings[inn]['runs'] = 0
     @innings[inn]['extras'] = 0
     @innings[inn]['wickets'] = 0
@@ -199,26 +192,36 @@ module Match
     
     over = 1
     while over <= @overs_per_inning
+      if(@match_type.upcase != "TEST" && inn == 2 && @innings[1]['runs'] < @innings[2]['runs'])
+        break
+      end
       if @innings[inn]['wickets'] == @wickets_per_inning
         break
       end
 
       over_name = "Over #{over}"
-      @innings[inn]['timeline'][over_name] = []
+      @innings[inn]['timeline'][over_name] = {}
+      @innings[inn]['timeline'][over_name]['deliveries'] = []
+      @innings[inn]['timeline'][over_name]['over_runs'] = 0
+      @innings[inn]['timeline'][over_name]['over_wickets'] = 0
 
       ball = 1
       # 6 balls per over
       while ball <= 6
+        if(@match_type.upcase != "TEST" && inn == 2 && @innings[1]['runs'] < @innings[2]['runs'])
+          break
+        end
         if @innings[inn]['wickets'] == @wickets_per_inning
           break
         end
 
         delivery = @probablities.keys.sample
-        @innings[inn]['timeline'][over_name].push(delivery)
+        @innings[inn]['timeline'][over_name]['deliveries'].push(delivery)
 
         # add runs
         if(@probablities[delivery]['runs'] != 0)
           @innings[inn]['runs'] += @probablities[delivery]['runs']
+          @innings[inn]['timeline'][over_name]['over_runs'] += @probablities[delivery]['runs']
         end
 
         # add extras in count
@@ -229,6 +232,7 @@ module Match
         # add wickets
         if(@probablities[delivery]['out'] == true)
           @innings[inn]['wickets'] += 1
+          @innings[inn]['timeline'][over_name]['over_wickets'] += 1
         end
 
         # check if ball is counted
@@ -236,14 +240,23 @@ module Match
           ball += 1
           @innings[inn]['overs'] += 0.1
         end
+
+        if (ball == 7)
+          @innings[inn]['overs'] = over
+          over += 1
+        end
       end
-
-      @innings[inn]['overs'] = over
-      over += 1
+      
+      @innings[inn]['timeline'][over_name]['runs'] = @innings[inn]['runs']
+      @innings[inn]['timeline'][over_name]['wickets'] = @innings[inn]['wickets']
     end
-  end
 
-  def match_results
+    # inverse roles for next inning
+    if(@batting_team == "your")
+      @batting_team = "opponent"
+    else
+      @batting_team = "your"
+    end
   end
 
 end

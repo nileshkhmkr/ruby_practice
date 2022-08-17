@@ -1,0 +1,75 @@
+
+Your team : CSK
+Team name :Chennai Super Kings
+Captain :Ravindra Jadeja
+1) M S Dhoni => Batsman
+2) Ruturaj Gaikwad => Batsman
+3) Robin Uthappa => Batsman
+4) Ambati Rayudu => Batsman
+5) Ravindra Jadeja => All-rounder
+6) Moeen Ali => All-rounder
+7) Dwayne Bravo => All-rounder
+8) Deepak Chahar => Bowler
+9) KM Asif => Bowler
+10) Tushar Deshpande => Bowler
+11) Maheesh Theekshana => Bowler
+
+Opponent team : SRH
+Team name :Sunrisers Hyderabad
+Captain :Kane Williamson
+1) Kane Williamson => Batsman
+2) Aiden Markram => Batsman
+3) Shashank Singh => Batsman
+4) R Samarth => Batsman
+5) Abdul Samad => All-rounder
+6) Marco Jansen => All-rounder
+7) Sean Abbott => All-rounder
+8) Bhuvneshwar Kumar => Bowler
+9) T Natarajan => Bowler
+10) Kartik Tyagi => Bowler
+11) Shreyas Gopal => Bowler
+--------------------------------------
+
+Batting line-up of team Chennai Super Kings : 
+1) M S Dhoni
+2) Ruturaj Gaikwad
+3) Robin Uthappa
+4) Ambati Rayudu
+5) Ravindra Jadeja
+6) Moeen Ali
+7) Dwayne Bravo
+8) Deepak Chahar
+9) KM Asif
+10) Tushar Deshpande
+11) Maheesh Theekshana
+
+Balling line-up of team Chennai Super Kings : 
+1) Deepak Chahar
+2) KM Asif
+3) Tushar Deshpande
+4) Maheesh Theekshana
+5) Ravindra Jadeja
+6) Moeen Ali
+7) Dwayne Bravo
+
+Batting line-up of team Sunrisers Hyderabad : 
+1) Kane Williamson
+2) Aiden Markram
+3) Shashank Singh
+4) R Samarth
+5) Abdul Samad
+6) Marco Jansen
+7) Sean Abbott
+8) Bhuvneshwar Kumar
+9) T Natarajan
+10) Kartik Tyagi
+11) Shreyas Gopal
+
+Balling line-up of team Sunrisers Hyderabad : 
+1) Bhuvneshwar Kumar
+2) T Natarajan
+3) Kartik Tyagi
+4) Shreyas Gopal
+5) Abdul Samad
+6) Marco Jansen
+7) Sean Abbott

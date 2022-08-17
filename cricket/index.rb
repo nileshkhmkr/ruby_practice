@@ -171,6 +171,9 @@ class Cricket
     @wickets_per_inning = 10
     @innings = {}
 
+    @teams_file       = "results/teams.txt"
+    @scoreboard_file  = "results/scoreboard.txt"
+
     #start the game now by choosing game_type (i.e. Quick game or Custom game)
     start_game
   end
@@ -248,8 +251,9 @@ class Cricket
     puts $lines
     start_match
 
-    puts $lines
-    match_results
+    display_result(@innings)
+
+    write_results_to_file(@teams_file, @scoreboard_file)
   end
 
 end
